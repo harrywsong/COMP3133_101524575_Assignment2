@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { EmployeeListComponent } from './components/employee-list/employee-list.component';
-import { EmployeeAddComponent } from './components/employee-add/employee-add.component';
-import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
-import { EmployeeEditComponent } from './components/employee-edit/employee-edit.component';
+import { Login } from './components/login/login';
+import { Signup } from './components/signup/signup';
+import { EmployeeList } from './components/employee-list/employee-list';
+import { EmployeeAdd } from './components/employee-add/employee-add';
+import { EmployeeDetail } from './components/employee-detail/employee-detail';
+import { EmployeeEdit } from './components/employee-edit/employee-edit';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'employees', component: EmployeeListComponent },
-  { path: 'employees/add', component: EmployeeAddComponent },
-  { path: 'employees/:id', component: EmployeeDetailComponent },
-  { path: 'employees/:id/edit', component: EmployeeEditComponent },
+  { path: 'login', component: Login },
+  { path: 'signup', component: Signup },
+  { path: 'employees', component: EmployeeList },
+  { path: 'employees/add', component: EmployeeAdd },
+  { path: 'employees/:id', component: EmployeeDetail },
+  { path: 'employees/:id/edit', component: EmployeeEdit },
   { path: '**', redirectTo: '/login' }
 ];
