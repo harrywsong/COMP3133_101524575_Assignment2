@@ -1,0 +1,26 @@
+.signup-page {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.signup-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border: 1px solid #ccc;
+}
+
+.signup-card h2 {
+  margin-top: 0;
+}
+
+.signup-card button {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.switch {
+  margin-top: 12px;
+  text-align: center;
+}
