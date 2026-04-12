@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
-// This component handles new user registration
 @Component({
   selector: 'app-signup',
   imports: [FormsModule, RouterLink],
