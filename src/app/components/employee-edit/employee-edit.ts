@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -35,7 +35,8 @@ export class EmployeeEdit implements OnInit {
     private employeeService: EmployeeService,
     private auth: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private cdr: ChangeDetectorRef
   ) {
     // If not logged in, redirect to login
     if (!this.auth.isLoggedIn()) {
@@ -67,10 +68,12 @@ export class EmployeeEdit implements OnInit {
         this.department = emp.department;
         this.employee_photo = emp.employee_photo || '';
         this.loading = false;
+        this.cdr.detectChanges();
       },
       error: () => {
         this.error = 'Failed to load employee.';
         this.loading = false;
+        this.cdr.detectChanges();
       }
     });
   }
