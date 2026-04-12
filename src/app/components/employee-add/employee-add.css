@@ -20,10 +20,6 @@
   margin: 0;
 }
 
-.form-group {
-  margin-bottom: 12px;
-}
-
 .form-row {
   display: flex;
   gap: 12px;

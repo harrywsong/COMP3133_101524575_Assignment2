@@ -1,7 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
 body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
   margin: 0;
   padding: 20px;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 input, select {
@@ -9,7 +15,7 @@ input, select {
   margin: 4px 0;
   font-size: 14px;
   width: 100%;
-  box-sizing: border-box;
+  display: block;
 }
 
 button {
@@ -25,15 +31,27 @@ button:hover {
   background: #0056b3;
 }
 
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
 label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
+  font-size: 14px;
 }
 
-a { color: #007bff; }
+a {
+  color: #007bff;
+}
 
 .error {
   color: red;
   margin: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 12px;
 }

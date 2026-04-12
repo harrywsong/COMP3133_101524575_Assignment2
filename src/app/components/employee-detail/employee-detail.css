@@ -25,6 +25,7 @@
   height: 100px;
   object-fit: cover;
   margin-bottom: 16px;
+  display: block;
 }
 
 .detail-grid {
@@ -32,6 +33,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
@@ -42,11 +48,18 @@
 
 .value {
   margin-top: 2px;
+  font-size: 14px;
 }
 
 .btn-edit {
+  display: inline-block;
   background: #007bff;
   color: white;
   padding: 8px 16px;
   text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-edit:hover {
+  background: #0056b3;
 }
