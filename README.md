@@ -11,6 +11,10 @@ Angular frontend for the COMP3133 fullstack application. Utilizes GraphQL API us
 - Add, edit, and delete employees
 - View individual employee details
 
+## Backend
+
+GraphQL API: https://comp-3133-101524575-assignment1.vercel.app/
+
 ## Tech Stack
 
 - Angular 21
