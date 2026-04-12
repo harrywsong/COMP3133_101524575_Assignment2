@@ -1,12 +1,13 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { DatePipe } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { EmployeeService } from '../../services/employee.service';
 import { Employee } from '../../models/models';
 
 @Component({
   selector: 'app-employee-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   templateUrl: './employee-detail.html',
   styleUrl: './employee-detail.css'
 })
