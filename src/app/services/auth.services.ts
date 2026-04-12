@@ -5,8 +5,6 @@ import { map } from 'rxjs/operators';
 import { LOGIN_QUERY, SIGNUP_MUTATION } from '../graphql/graphql';
 import { User } from '../models/models';
 
-// This service handles all authentication logic
-// It stores the logged in user in sessionStorage to persist the session
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
