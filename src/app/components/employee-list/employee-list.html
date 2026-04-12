@@ -1,1 +1,71 @@
-<p>employee-list works!</p>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Employees</h2>
+    <div class="header-actions">
+      <span>Hello, {{ getUser()?.username }}</span>
+      <a routerLink="/employees/add" class="btn-add">Add New Employee</a>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchDepartment"
+      placeholder="Search by department"
+    />
+    <input
+      type="text"
+      [(ngModel)]="searchDesignation"
+      placeholder="Search by designation"
+    />
+    <button (click)="onSearch()">Search</button>
+    <button (click)="loadEmployees()">Reset</button>
+  </div>
+
+  <!-- Error message -->
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+
+  <!-- Loading -->
+  @if (loading) {
+    <p>Loading...</p>
+  }
+
+  <!-- Employee table -->
+  @if (!loading) {
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Department</th>
+          <th>Designation</th>
+          <th>Salary</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (emp of employees; track emp._id) {
+          <tr>
+            <td>{{ emp.first_name }} {{ emp.last_name }}</td>
+            <td>{{ emp.email }}</td>
+            <td>{{ emp.department }}</td>
+            <td>{{ emp.designation }}</td>
+            <td>${{ emp.salary }}</td>
+            <td class="actions">
+              <a [routerLink]="['/employees', emp._id]">View</a>
+              <a [routerLink]="['/employees', emp._id, 'edit']">Edit</a>
+              <button (click)="deleteEmployee(emp._id)">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+
+</div>
