@@ -1,1 +1,72 @@
-<p>employee-detail works!</p>
+<div class="page">
+  <div class="detail-card">
+
+    <div class="detail-header">
+      <h2>Employee Details</h2>
+      <a routerLink="/employees">← Back to List</a>
+    </div>
+
+    @if (error) {
+      <div class="error">{{ error }}</div>
+    }
+
+    @if (loading) {
+      <p>Loading...</p>
+    }
+
+    @if (employee) {
+      <div class="detail-content">
+
+        <!-- Photo -->
+        @if (employee.employee_photo) {
+          <div class="photo-section">
+            <img [src]="employee.employee_photo" alt="Employee photo" class="employee-photo" />
+          </div>
+        }
+
+        <!-- Details -->
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="label">First Name</span>
+            <span class="value">{{ employee.first_name }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Last Name</span>
+            <span class="value">{{ employee.last_name }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Email</span>
+            <span class="value">{{ employee.email }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Gender</span>
+            <span class="value">{{ employee.gender }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Department</span>
+            <span class="value">{{ employee.department }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Designation</span>
+            <span class="value">{{ employee.designation }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Salary</span>
+            <span class="value">${{ employee.salary }}</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Date of Joining</span>
+            <span class="value">{{ employee.date_of_joining }}</span>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <a [routerLink]="['/employees', employee._id, 'edit']" class="btn-edit">Edit Employee</a>
+        </div>
+
+      </div>
+    }
+
+  </div>
+</div>
