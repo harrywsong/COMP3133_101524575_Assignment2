@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -20,7 +20,7 @@ export class Login {
   loading = false;
   error = '';
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, private readonly cdr: ChangeDetectorRef) {
     // If already logged in, redirect to employees page
     if (this.auth.isLoggedIn()) {
       this.router.navigate(['/employees']);
@@ -35,11 +35,13 @@ export class Login {
     this.auth.login(this.username, this.password).subscribe({
       next: () => {
         this.loading = false;
+        this.cdr.detectChanges();
         this.router.navigate(['/employees']);
       },
       error: () => {
         this.loading = false;
         this.error = 'Invalid username or password. Please try again.';
+        this.cdr.detectChanges();
       }
     });
   }
